@@ -34,3 +34,9 @@ for (i in 1:10000){
 }
 x6diff <- x6 - mean(population)
 table(abs(x6diff) > 1)
+
+x <- ChickWeight
+x <- reshape(x, idvar=c('Chick', 'Diet'), timevar="Time", direction='wide')
+x <- na.omit(x)
+sd(c(x$weight.4, 3000)) / sd(x$weight.4) # 100 times higher
+mad(c(x$weight.4, 3000)) / mad(x$weight.4)
